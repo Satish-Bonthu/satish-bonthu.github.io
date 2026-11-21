@@ -38,3 +38,17 @@ nav a[aria-current='page'] { font-weight: 700; }
 .case-details dd { margin: 0 0 .65rem; }
 .case-status { padding: .65rem .8rem; border-left: 3px solid var(--brand-brown); background: var(--brand-ivory); font-size: .9rem; }
 nav a[aria-current='page'] { text-decoration-thickness: .15em; }
+
+.hero--voyager {
+  background: linear-gradient(90deg, rgba(0, 35, 30, .94), rgba(0, 35, 30, .72) 43%, rgba(0, 35, 30, .10) 78%), url("images/sun-voyager.jpg") center / cover no-repeat;
+  min-height: clamp(27rem, 49vw, 47rem);
+  display: grid;
+  align-items: center;
+}
+.hero-summary { max-width: 34rem; }
+@media (max-width: 40rem) {
+  .hero--voyager {
+    background-image: linear-gradient(90deg, rgba(0, 35, 30, .88), rgba(0, 35, 30, .58)), url("images/sun-voyager.jpg");
+    background-position: 42% center;
+  }
+}
