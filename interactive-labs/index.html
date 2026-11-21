@@ -6,6 +6,14 @@
   <meta name="description" content="Explore interactive computational acoustics demonstrations.">
   <title>Interactive Labs | Satish Bonthu</title>
   <link rel="stylesheet" href="../portfolio.css?v=interactive-labs">
+  <style>
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr)); gap:clamp(1rem,3vw,2rem); padding-block:2rem 3rem; }
+    .gallery article { padding:0; border:1px solid #c6cec6; overflow:hidden; border-radius:.65rem; }
+    .gallery img { width:100%; aspect-ratio:4 / 3; object-fit:cover; object-position:top; display:block; background:#132521; }
+    .gallery .caption { padding:.9rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
+    .gallery .lab-launch { white-space:nowrap; }
+    .gallery .unavailable { color:var(--brand-brown); font-size:.9rem; }
+  </style>
 </head>
 <body>
   <header>
@@ -22,125 +30,35 @@
     </nav>
     <div class="wrap page-hero"><h1>Interactive Labs</h1></div>
   </header>
-  <main class="wrap">
-    <section>
-      <div class="reading">
-        <p>Explore the public walkthrough below. The full dashboards are available to invited users and require sign-in.</p>
-        <p><a href="https://labs.preciouscompute.com/" target="_blank" rel="noopener">Open Precious Labs (sign-in required)</a></p>
-        <p class="case-status"><strong>Demonstrations only.</strong> These unreviewed tools are shared for exploration and discussion. Please ask before republishing or adapting them. Constructive feedback is welcome.</p>
+  <main class="wrap gallery" aria-label="Lab previews">
+    <article>
+      <a href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Launch Room Excitation Lab (sign-in required)"><img src="media/room-excitation-card.jpg" alt="Screenshot of the furnished room and excitation dashboard" loading="lazy"></a>
+      <div class="caption">
+        <h2 style="font-size:1.25rem;margin:0">Room Excitation Lab</h2>
+        <a class="lab-launch" href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Launch Room Excitation Lab (sign-in required)">Launch</a>
       </div>
-      <div class="lab-list">
-        <article class="lab-card">
-          <div>
-            <p class="category">Guided demonstration</p>
-            <h2>Room Resonance Lab</h2>
-            <p>Explore how room geometry changes natural frequencies and the spatial shape of acoustic modes.</p>
-            <p class="lab-actions"><a class="lab-launch" href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Launch Room Resonance Lab (sign-in required)">Launch lab</a> <a class="lab-launch" href="mailto:satish@hi.is?subject=Guided%20demo%20request%3A%20Room%20Resonance%20Lab" aria-label="Request a guided demo for Room Resonance Lab">Request a guided demo</a></p>
-          </div>
-          <a href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Open the protected Room Resonance Lab">
-            <img src="media/room-resonance-preview.jpg" alt="Room Resonance Lab showing the receiver frequency response and a spatial pressure slice." width="1348" height="926" loading="lazy" style="display:block;width:100%;max-width:52rem;height:auto">
-          </a>
-          <figure style="margin:0">
-            <video controls playsinline preload="none" poster="media/scene1.png" aria-label="Illustrated Room Resonance Lab workflow" style="display:block;width:100%;max-width:52rem;height:auto">
-              <source src="media/room-resonance-walkthrough.mp4" type="video/mp4">
-            </video>
-            <figcaption>Illustrated workflow. In a rigid rectangular room, shortening the room from 6 m to 5 m shifts the first lengthwise mode from 28.6 Hz to 34.3 Hz. The mode has a pressure node halfway between the end walls.</figcaption>
-          </figure>
-          <details>
-            <summary>About this lab</summary>
-            <dl class="case-details">
-              <dt>Problem</dt>
-              <dd>Room modes are difficult to picture from frequencies alone.</dd>
-              <dt>Proposed solution</dt>
-              <dd>Make the pressure patterns and frequencies visible together.</dd>
-              <dt>How it works</dt>
-              <dd>Adjust the room and explore modal fields, phase animation, and receiver behavior.</dd>
-              <dt>Level of difficulty</dt>
-              <dd>Intermediate · Interpreting spatial modes and nodal patterns.</dd>
-              <dt>Value and takeaway</dt>
-              <dd>See how geometry and receiver placement affect the acoustic response.</dd>
-            </dl>
-          </details>
-        </article>
-        <article class="lab-card">
-          <div>
-            <p class="category">Guided demonstration</p>
-            <h2>Room Excitation Lab</h2>
-            <p>Compare how different sound sources excite the same furnished room.</p>
-            <p class="lab-actions"><a class="lab-launch" href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Launch Room Excitation Lab (sign-in required)">Launch lab</a> <a class="lab-launch" href="mailto:satish@hi.is?subject=Guided%20demo%20request%3A%20Room%20Excitation%20Lab" aria-label="Request a guided demo for Room Excitation Lab">Request a guided demo</a></p>
-          </div>
-          <a href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Open the protected Room Excitation Lab">
-            <img src="media/room-excitation-preview.jpg" alt="Room Excitation Lab showing the furnished room, source presets, and modal participation." width="1348" height="1498" loading="lazy" style="display:block;width:100%;max-width:52rem;height:auto">
-          </a>
-          <details>
-            <summary>About this lab</summary>
-            <dl class="case-details">
-              <dt>Problem</dt>
-              <dd>Different excitations can produce different responses in the same room.</dd>
-              <dt>Proposed solution</dt>
-              <dd>Compare source signals and the room modes each excites.</dd>
-              <dt>How it works</dt>
-              <dd>Use a furnished-room demonstration to explore the link between excitation and response.</dd>
-              <dt>Level of difficulty</dt>
-              <dd>Advanced · Source normalization and modal coupling.</dd>
-              <dt>Value and takeaway</dt>
-              <dd>See why the sound you use to excite a room affects which modes are visible.</dd>
-            </dl>
-          </details>
-        </article>
-        <article class="lab-card">
-          <div>
-            <p class="category">Guided demonstration</p>
-            <h2>Didgeridoo Lab</h2>
-            <p>Explore the link between instrument bore geometry and resonance.</p>
-            <p class="lab-actions"><a class="lab-launch" href="https://labs.preciouscompute.com/didgeridoo/" target="_blank" rel="noopener" aria-label="Launch Didgeridoo Lab (sign-in required)">Launch lab</a> <a class="lab-launch" href="mailto:satish@hi.is?subject=Guided%20demo%20request%3A%20Didgeridoo%20Lab" aria-label="Request a guided demo for Didgeridoo Lab">Request a guided demo</a></p>
-          </div>
-          <details>
-            <summary>About this lab</summary>
-            <dl class="case-details">
-              <dt>Problem</dt>
-              <dd>Bore geometry affects an instrument’s resonance frequencies.</dd>
-              <dt>Proposed solution</dt>
-              <dd>Make the geometry and resonance behavior explorable in a dashboard.</dd>
-              <dt>How it works</dt>
-              <dd>Use the interactive model to examine how bore parameters affect resonance.</dd>
-              <dt>Level of difficulty</dt>
-              <dd>Intermediate · Relating bore geometry to standing waves.</dd>
-              <dt>Value and takeaway</dt>
-              <dd>Build intuition about why changing an instrument’s dimensions changes its sound.</dd>
-            </dl>
-          </details>
-        </article>
-        <article class="lab-card">
-          <div>
-            <p class="category">MATLAB app</p>
-            <h2>Modal Solver</h2>
-            <p>A MATLAB app for computing and inspecting acoustic modes of rooms, including floor plans whose mode shapes are harder to predict from dimensions alone.</p>
-            <p class="lab-actions"><a class="lab-launch" href="mailto:satish@hi.is?subject=Guided%20demo%20request%3A%20Modal%20Solver" aria-label="Request a guided demo for Modal Solver">Request a guided demo</a></p>
-          </div>
-          <details>
-            <summary>About this lab</summary>
-            <dl class="case-details">
-              <dt>Problem</dt>
-              <dd>Irregular room geometry makes natural frequencies and mode shapes difficult to estimate with rectangular-room formulas.</dd>
-              <dt>Proposed solution</dt>
-              <dd>Use a MATLAB app to bring numerical modal analysis and visualization into one workflow.</dd>
-              <dt>How it works</dt>
-              <dd>The app runs MATLAB-based solvers and displays the resulting acoustic frequencies and spatial mode shapes.</dd>
-              <dt>Level of difficulty</dt>
-              <dd>Advanced · Geometry discretization and numerical eigenmode extraction.</dd>
-              <dt>Value and takeaway</dt>
-              <dd>See how a room’s shape affects where its natural modes concentrate acoustic pressure.</dd>
-            </dl>
-          </details>
-        </article>
+    </article>
+    <article>
+      <a href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Launch Room Resonance Lab (sign-in required)"><img src="media/room-resonance-preview.jpg" alt="Screenshot of the driven response and spatial pressure visualization" loading="lazy"></a>
+      <div class="caption">
+        <h2 style="font-size:1.25rem;margin:0">Room Resonance Lab</h2>
+        <a class="lab-launch" href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Launch Room Resonance Lab (sign-in required)">Launch</a>
       </div>
-      <h2>Guided demos and development requests</h2>
-      <p>For teaching, research collaboration, or a tailored version, <a href="mailto:satish@hi.is?subject=Interactive%20Labs%20inquiry">email me</a>. Mention the lab and what you’d like to do with it. For a feature request, describe the workflow you want to improve.</p>
-    </section>
+    </article>
+    <article>
+      <a href="https://labs.preciouscompute.com/didgeridoo/" target="_blank" rel="noopener" aria-label="Launch Didgeridoo Lab (sign-in required)"><img src="media/didgeridoo-card.jpg" alt="Illustration of a curved didgeridoo bore" loading="lazy"></a>
+      <div class="caption">
+        <h2 style="font-size:1.25rem;margin:0">Didgeridoo Lab</h2>
+        <a class="lab-launch" href="https://labs.preciouscompute.com/didgeridoo/" target="_blank" rel="noopener" aria-label="Launch Didgeridoo Lab (sign-in required)">Launch</a>
+      </div>
+    </article>
+    <article>
+      <img src="media/modal-solver-card.jpg" alt="Illustration of an L-shaped room plan" loading="lazy">
+      <div class="caption">
+        <h2 style="font-size:1.25rem;margin:0">Modal Solver</h2>
+        <span class="unavailable">Launch unavailable</span>
+      </div>
+    </article>
   </main>
-  <footer class="wrap">
-    <a href="https://github.com/Satish-Bonthu" target="_blank" rel="noopener">Satish Bonthu on GitHub</a>
-  </footer>
 </body>
 </html>
