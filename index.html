@@ -28,6 +28,8 @@
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
     article { background: #fff; border: 1px solid #c6cec6; border-top: 3px solid #418075; padding: 1.25rem; }
     .reading { max-width: 45rem; }
+    .reading + .cards { margin-top: 1.5rem; }
+    .category { color: #15564a; font-size: .9rem; margin: 0 0 .4rem; }
     li + li { margin-top: .4rem; }
     footer { padding-block: 1.5rem; }
   </style>
@@ -35,46 +37,85 @@
 <body>
   <header>
     <nav class="wrap" aria-label="Portfolio">
-      <a href="#current">Current work</a>
-      <a href="#engineering">Engineering</a>
+      <a href="#research">PhD research</a>
+      <a href="#engineering">Iceland CFD consulting</a>
+      <a href="#lab">Lab prototypes</a>
+      <a href="#fun">Fun projects</a>
       <a href="#archive">Career archive</a>
     </nav>
     <div class="wrap hero">
       <p class="location">Reykjavík, Iceland</p>
       <h1>Satish Bonthu</h1>
       <p class="intro">I’m a mechanical engineer with over 15 years of CFD consulting experience. My PhD research develops reduced-order models for wave-based room acoustics, with the goal of predicting impulse responses at lower computational cost.</p>
+      <p><a href="https://acute.hi.is/team/satish-kumar-bonthu/">ACUTE Research Laboratories · University of Iceland</a></p>
     </div>
   </header>
 
   <main class="wrap">
-    <section id="current" aria-labelledby="current-title">
-      <h2 id="current-title">Current work</h2>
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">PhD research</h2>
+      <div class="reading">
+        <p>A wave-based simulation can predict how sound travels and decays in a room, but repeated simulations become expensive when you change the wall materials or other inputs. I build reduced-order models to make those repeated predictions faster while preserving the acoustic behavior that matters.</p>
+      </div>
       <div class="cards">
         <article>
-          <h3>Reduced-order modeling for room acoustics</h3>
-          <p>I study how reduced models predict time-domain impulse responses as room boundary impedance changes, with particular attention to accuracy and stability.</p>
+          <h3>Published research on numerical stability</h3>
+          <p>Our published formulation preserves the structure of the time-domain equations during model reduction and accounts for frequency-dependent absorbing boundaries.</p>
+          <p><a href="https://doi.org/10.1002/nme.70295">Read the open-access paper</a></p>
         </article>
         <article>
-          <h3>Room Resonance Lab</h3>
-          <p>An interactive modal analysis prototype for exploring how room geometry shapes acoustic modes and how excitation affects which modes appear in a response.</p>
+          <h3>Ongoing research on changing room materials</h3>
+          <p>I’m investigating how a shared reduced basis can predict impulse responses across a range of boundary impedances. Accuracy and stability are assessed against full-order simulations.</p>
+          <p><a href="https://acute.hi.is/projects/reduced-order-modeling-rom-of-room-acoustic-simulations/">See the research project at ACUTE</a></p>
         </article>
       </div>
     </section>
 
     <section id="engineering" aria-labelledby="engineering-title">
-      <h2 id="engineering-title">Selected engineering work</h2>
+      <h2 id="engineering-title">Iceland CFD consulting</h2>
       <div class="cards">
         <article>
-          <h3>Marine propeller retrofit</h3>
-          <p>Used CFD on an Icelandic project to assess the fuel-saving and greenhouse gas reduction potential of retrofitting a ship’s propeller.</p>
+          <h3>Propeller retrofit for a whale-watching vessel</h3>
+          <p>For North Sailing, I used CFD to assess how a propeller retrofit could improve hydrodynamic efficiency and help estimate the potential fuel and emissions benefits.</p>
         </article>
         <article>
-          <h3>Natural ventilation retrofits</h3>
-          <p>Compared CFD predictions of wind-driven ventilator suction with experimental data and used a passive tracer to study dispersion and removal in a naturally ventilated toilet.</p>
+          <h3>Cavitation in heat-pump piping</h3>
+          <p>I used numerical simulation to investigate cavitation in piping as part of heat-pump technology development.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="lab" aria-labelledby="lab-title">
+      <h2 id="lab-title">Lab prototypes</h2>
+      <div class="cards">
+        <article>
+          <h3>Room Resonance Lab</h3>
+          <p>An interactive prototype for exploring how room geometry shapes natural frequencies and the spatial patterns of acoustic modes.</p>
         </article>
         <article>
-          <h3>The Cloud Beneath the Ice</h3>
-          <p>Presented research at IGEC 2025 in Reykjavík on the environmental and socioeconomic implications of data center development in Iceland.</p>
+          <h3>Exciting a furnished room</h3>
+          <p>A planned standalone prototype comparing how different source signals excite the modes of the same furnished room. The aim is to connect modal analysis to a forced response through examples such as a clap, a whistle, and a balloon pop.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="fun" aria-labelledby="fun-title">
+      <h2 id="fun-title">Fun projects</h2>
+      <div class="cards">
+        <article>
+          <p class="category">Acoustics</p>
+          <h3>Didgeridoo resonance</h3>
+          <p>An exploration of how the length and shape of a didgeridoo’s bore affect its resonances, including a snake-shaped geometry.</p>
+        </article>
+        <article>
+          <p class="category">CFD · Building ventilation</p>
+          <h3>Can the wind ventilate a restroom?</h3>
+          <p>I compared simulated suction from a wind-driven ventilator with experimental data and used a passive tracer to explore how effectively it clears air from a naturally ventilated restroom.</p>
+        </article>
+        <article>
+          <p class="category">Ray optics</p>
+          <h3>Tokarsky’s unilluminable room</h3>
+          <p>A ray-tracing experiment on a geometric puzzle about whether light from one point can reach every part of a mirrored room.</p>
         </article>
       </div>
     </section>
