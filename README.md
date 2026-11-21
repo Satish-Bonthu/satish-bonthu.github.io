@@ -9,6 +9,5 @@ Public GitHub Pages site: [satish-bonthu.github.io](https://satish-bonthu.github
 | `interactive-labs/` | Public walkthroughs and guided demo requests |
 | `fun-projects/` | Fun Corner |
 | `career-archive/` | Pre-PhD case studies |
-| `lab-prototypes/` | Redirect for older links to Interactive Labs |
 
 Keep complete lab builds, raw simulation data, and private project material outside this public repository. Place approved walkthrough media in `interactive-labs/media/`. Follow the [portfolio editorial guide](PORTFOLIO_GUIDE.md) when adding work.
