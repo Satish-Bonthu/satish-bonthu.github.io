@@ -1,15 +1,20 @@
-:root { color-scheme: light; background: #f6f4ee; color: #1b2830; font: 100%/1.6 system-ui, sans-serif; }
+:root {
+  --brand-teal: #003c30;
+  --brand-brown: #8c510a;
+  --brand-ivory: #f6f4ee;
+  --brand-mint: #c7eae5;
+ color-scheme: light; background: var(--brand-ivory); color: #1b2830; font: 100%/1.6 system-ui, sans-serif; }
 * { box-sizing: border-box; }
 body { margin: 0; }
 .wrap { width: min(68rem, calc(100% - 3rem)); margin-inline: auto; }
-header { background: #102d32; color: #f6f4ee; }
-header a { color: #bcebdc; }
+header { background: var(--brand-teal); color: var(--brand-ivory); }
+header a { color: var(--brand-mint); }
 a { color: #15564a; text-underline-offset: .2em; }
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
-nav { padding-block: 1.1rem; border-bottom: 1px solid #476064; }
+nav { padding-block: 1.1rem; border-bottom: 1px solid #5ab4ac; }
 nav a { display: inline-block; margin-right: 1.25rem; }
 .hero { padding-block: clamp(3rem, 9vw, 7rem); }
-.location { color: #bcebdc; }
+.location { color: var(--brand-mint); }
 h1, h2 { font-family: Georgia, serif; font-weight: normal; line-height: 1.1; }
 h1 { font-size: clamp(3rem, 9vw, 6rem); margin: .2em 0; }
 h2 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 1rem; }
@@ -18,12 +23,18 @@ p { margin: .7rem 0 0; }
 .intro { max-width: 43rem; font-size: clamp(1.15rem, 3vw, 1.45rem); }
 main section { padding-block: clamp(2.4rem, 6vw, 4rem); border-bottom: 1px solid #c6cec6; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
-article { background: #fff; border: 1px solid #c6cec6; border-top: 3px solid #418075; padding: 1.25rem; }
+article { background: #fff; border: 1px solid #c6cec6; border-top: 3px solid var(--brand-brown); padding: 1.25rem; }
 .reading { max-width: 45rem; }
 .reading + .cards { margin-top: 1.5rem; }
-.category { color: #15564a; font-size: .9rem; margin: 0 0 .4rem; }
+.category { color: var(--brand-brown); font-size: .9rem; margin: 0 0 .4rem; }
 li + li { margin-top: .4rem; }
 footer { padding-block: 1.5rem; }
 nav a[aria-current='page'] { font-weight: 700; }
 .page-hero { padding-block: clamp(2rem, 5vw, 4rem); }
 .directory a { color: inherit; }
+
+.case-details { margin: .9rem 0 0; }
+.case-details dt { font-weight: 700; color: var(--brand-brown); }
+.case-details dd { margin: 0 0 .65rem; }
+.case-status { padding: .65rem .8rem; border-left: 3px solid var(--brand-brown); background: var(--brand-ivory); font-size: .9rem; }
+nav a[aria-current='page'] { text-decoration-thickness: .15em; }

@@ -27,17 +27,54 @@
       <div class="cards">
         <article>
           <h3>Published research on numerical stability</h3>
-          <p>Our published formulation preserves the structure of the time-domain equations during model reduction and accounts for frequency-dependent absorbing boundaries.</p>
+          <dl class="case-details">
+            <dt>Problem</dt>
+            <dd>Model reduction can introduce unstable pressure growth in time-domain room simulations.</dd>
+            <dt>Proposed solution</dt>
+            <dd>Preserve the structure of the acoustic equations during reduction.</dd>
+            <dt>How it was approached</dt>
+            <dd>Tested against full-order simulations with rigid and absorbing boundaries.</dd>
+            <dt>Level of difficulty</dt>
+            <dd>Advanced · Coupled boundary dynamics and stability after projection.</dd>
+            <dt>Value and takeaway</dt>
+            <dd>Demonstrates a route to faster, stable predictions in the tested cases.</dd>
+            <dt>Sustainability</dt>
+            <dd>Lower compute time can reduce computational demand for repeated studies.</dd>
+          </dl>
           <p><a href="https://doi.org/10.1002/nme.70295">Read the open-access paper</a></p>
         </article>
         <article>
           <h3>Ongoing research on changing room materials</h3>
-          <p>I’m investigating how a shared reduced basis can predict impulse responses across a range of boundary impedances. Accuracy and stability are assessed against full-order simulations.</p>
+          <dl class="case-details">
+            <dt>Problem</dt>
+            <dd>Changing wall absorption typically requires another full simulation.</dd>
+            <dt>Proposed solution</dt>
+            <dd>Use a shared reduced basis across a range of wall impedances.</dd>
+            <dt>How it was approached</dt>
+            <dd>Compare predictions at unseen in-range impedances with full-order responses.</dd>
+            <dt>Level of difficulty</dt>
+            <dd>Advanced · The basis must capture how decay changes across materials.</dd>
+            <dt>Value and takeaway</dt>
+            <dd>Could make material comparisons faster during acoustic design.</dd>
+          </dl>
+          <p class="case-status">Work in progress · Unreviewed. Shared to illustrate the research direction. Constructive questions and feedback are welcome.</p>
           <p><a href="https://acute.hi.is/projects/reduced-order-modeling-rom-of-room-acoustic-simulations/">See the research project at ACUTE</a></p>
         </article>
         <article>
           <h3>Non-intrusive modeling and data sparsity</h3>
-          <p>Our 2026 SSRN preprint combines proper orthogonal decomposition with regression to study how coverage of surface-absorption settings affects prediction accuracy.</p>
+          <dl class="case-details">
+            <dt>Problem</dt>
+            <dd>A surrogate can lose accuracy in poorly sampled material settings.</dd>
+            <dt>Proposed solution</dt>
+            <dd>Combine proper orthogonal decomposition with regression.</dd>
+            <dt>How it was approached</dt>
+            <dd>Use full-order room simulations to assess how training coverage affects predictions.</dd>
+            <dt>Level of difficulty</dt>
+            <dd>Advanced · Sparse regions are hard to diagnose as the number of inputs grows.</dd>
+            <dt>Value and takeaway</dt>
+            <dd>Shows where targeted training simulations can improve prediction accuracy.</dd>
+          </dl>
+          <p class="case-status">SSRN preprint · Unreviewed manuscript. Shared for research discussion. Constructive feedback is welcome.</p>
           <p><a href="https://doi.org/10.2139/ssrn.7412273">Read the SSRN preprint</a></p>
         </article>
       </div>
