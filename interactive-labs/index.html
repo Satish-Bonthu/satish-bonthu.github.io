@@ -9,9 +9,13 @@
   <style>
     .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr)); gap:clamp(1rem,3vw,2rem); padding-block:2rem 3rem; }
     .gallery article { padding:0; border:1px solid #c6cec6; overflow:hidden; border-radius:.65rem; }
-    .gallery img { width:100%; aspect-ratio:4 / 3; object-fit:cover; object-position:top; display:block; background:#132521; }
+    .gallery img { width:100%; aspect-ratio:1348 / 926; object-fit:cover; object-position:top; display:block; background:#132521; }
     .gallery .caption { padding:.9rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
-    .gallery .lab-launch { white-space:nowrap; }
+    .gallery article > a { display:block; }
+    .gallery article > a:hover img { filter:brightness(1.1); }
+    .gallery article > a:focus-visible { outline-offset:-4px; }
+    .gallery h2 { font-size:1.25rem; margin:0; }
+    .gallery-note { margin:1.4rem auto 0; color:#15564a; }
     .gallery .unavailable { color:var(--brand-brown); font-size:.9rem; }
   </style>
 </head>
@@ -30,33 +34,31 @@
     </nav>
     <div class="wrap page-hero"><h1>Interactive Labs</h1></div>
   </header>
+  <p class="wrap gallery-note">Select a preview to open its lab. Sign-in required.</p>
   <main class="wrap gallery" aria-label="Lab previews">
     <article>
       <a href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Launch Room Excitation Lab (sign-in required)"><img src="media/room-excitation-card.jpg" alt="Screenshot of the furnished room and excitation dashboard" loading="lazy"></a>
       <div class="caption">
-        <h2 style="font-size:1.25rem;margin:0">Room Excitation Lab</h2>
-        <a class="lab-launch" href="https://labs.preciouscompute.com/room-excitation/" target="_blank" rel="noopener" aria-label="Launch Room Excitation Lab (sign-in required)">Launch</a>
+        <h2>Room Excitation Lab</h2>
       </div>
     </article>
     <article>
       <a href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Launch Room Resonance Lab (sign-in required)"><img src="media/room-resonance-preview.jpg" alt="Screenshot of the driven response and spatial pressure visualization" loading="lazy"></a>
       <div class="caption">
-        <h2 style="font-size:1.25rem;margin:0">Room Resonance Lab</h2>
-        <a class="lab-launch" href="https://labs.preciouscompute.com/room-resonance/" target="_blank" rel="noopener" aria-label="Launch Room Resonance Lab (sign-in required)">Launch</a>
+        <h2>Room Resonance Lab</h2>
       </div>
     </article>
     <article>
       <a href="https://labs.preciouscompute.com/didgeridoo/" target="_blank" rel="noopener" aria-label="Launch Didgeridoo Lab (sign-in required)"><img src="media/didgeridoo-card.jpg" alt="Illustration of a curved didgeridoo bore" loading="lazy"></a>
       <div class="caption">
-        <h2 style="font-size:1.25rem;margin:0">Didgeridoo Lab</h2>
-        <a class="lab-launch" href="https://labs.preciouscompute.com/didgeridoo/" target="_blank" rel="noopener" aria-label="Launch Didgeridoo Lab (sign-in required)">Launch</a>
+        <h2>Didgeridoo Lab</h2>
       </div>
     </article>
     <article>
       <img src="media/modal-solver-card.jpg" alt="Illustration of an L-shaped room plan" loading="lazy">
       <div class="caption">
-        <h2 style="font-size:1.25rem;margin:0">Modal Solver</h2>
-        <span class="unavailable">Launch unavailable</span>
+        <h2>Modal Solver</h2>
+        <span class="unavailable">MATLAB app · not hosted</span>
       </div>
     </article>
   </main>
