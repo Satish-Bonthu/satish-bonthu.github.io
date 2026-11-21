@@ -5,43 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Satish Bonthu’s engineering portfolio, covering CFD consulting, room acoustics, and reduced-order modeling.">
   <title>Satish Bonthu | CFD &amp; Computational Acoustics</title>
-  <style>
-    :root { color-scheme: light; background: #f6f4ee; color: #1b2830; font: 100%/1.6 system-ui, sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; }
-    .wrap { width: min(68rem, calc(100% - 3rem)); margin-inline: auto; }
-    header { background: #102d32; color: #f6f4ee; }
-    header a { color: #bcebdc; }
-    a { color: #15564a; text-underline-offset: .2em; }
-    a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
-    nav { padding-block: 1.1rem; border-bottom: 1px solid #476064; }
-    nav a { display: inline-block; margin-right: 1.25rem; }
-    .hero { padding-block: clamp(3rem, 9vw, 7rem); }
-    .location { color: #bcebdc; }
-    h1, h2 { font-family: Georgia, serif; font-weight: normal; line-height: 1.1; }
-    h1 { font-size: clamp(3rem, 9vw, 6rem); margin: .2em 0; }
-    h2 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 1rem; }
-    h3 { font-size: 1.2rem; line-height: 1.3; margin: 0; }
-    p { margin: .7rem 0 0; }
-    .intro { max-width: 43rem; font-size: clamp(1.15rem, 3vw, 1.45rem); }
-    main section { padding-block: clamp(2.4rem, 6vw, 4rem); border-bottom: 1px solid #c6cec6; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
-    article { background: #fff; border: 1px solid #c6cec6; border-top: 3px solid #418075; padding: 1.25rem; }
-    .reading { max-width: 45rem; }
-    .reading + .cards { margin-top: 1.5rem; }
-    .category { color: #15564a; font-size: .9rem; margin: 0 0 .4rem; }
-    li + li { margin-top: .4rem; }
-    footer { padding-block: 1.5rem; }
-  </style>
+  <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
   <header>
     <nav class="wrap" aria-label="Portfolio">
-      <a href="#research">PhD research</a>
-      <a href="#engineering">Iceland CFD consulting</a>
-      <a href="#lab">Lab prototypes</a>
-      <a href="#fun">Fun projects</a>
-      <a href="#archive">Career archive</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="research/index.html">PhD research</a>
+      <a href="iceland-cfd/index.html">Iceland CFD consulting</a>
+      <a href="lab-prototypes/index.html">Lab prototypes</a>
+      <a href="fun-projects/index.html">Fun projects</a>
+      <a href="career-archive/index.html">Career archive</a>
     </nav>
     <div class="wrap hero">
       <p class="location">Reykjavík, Iceland</p>
@@ -52,87 +26,29 @@
   </header>
 
   <main class="wrap">
-    <section id="research" aria-labelledby="research-title">
-      <h2 id="research-title">PhD research</h2>
-      <div class="reading">
-        <p>A wave-based simulation can predict how sound travels and decays in a room, but repeated simulations become expensive when you change the wall materials or other inputs. I build reduced-order models to make those repeated predictions faster while preserving the acoustic behavior that matters.</p>
-      </div>
+    <section class="directory" aria-labelledby="work-title">
+      <h2 id="work-title">Explore my work</h2>
       <div class="cards">
-        <article>
-          <h3>Published research on numerical stability</h3>
-          <p>Our published formulation preserves the structure of the time-domain equations during model reduction and accounts for frequency-dependent absorbing boundaries.</p>
-          <p><a href="https://doi.org/10.1002/nme.70295">Read the open-access paper</a></p>
+        <article id="research">
+          <h3><a href="research/index.html">PhD research</a></h3>
+          <p>Stable and efficient reduced-order models for wave-based room acoustics.</p>
         </article>
-        <article>
-          <h3>Ongoing research on changing room materials</h3>
-          <p>I’m investigating how a shared reduced basis can predict impulse responses across a range of boundary impedances. Accuracy and stability are assessed against full-order simulations.</p>
-          <p><a href="https://acute.hi.is/projects/reduced-order-modeling-rom-of-room-acoustic-simulations/">See the research project at ACUTE</a></p>
+        <article id="engineering">
+          <h3><a href="iceland-cfd/index.html">Iceland CFD consulting</a></h3>
+          <p>Applied CFD for marine propulsion, heat-pump piping, and natural ventilation.</p>
         </article>
-      </div>
-    </section>
-
-    <section id="engineering" aria-labelledby="engineering-title">
-      <h2 id="engineering-title">Iceland CFD consulting</h2>
-      <div class="cards">
-        <article>
-          <h3>Propeller retrofit for a whale-watching vessel</h3>
-          <p>For North Sailing, I used CFD to assess how a propeller retrofit could improve hydrodynamic efficiency and help estimate the potential fuel and emissions benefits.</p>
+        <article id="lab">
+          <h3><a href="lab-prototypes/index.html">Lab prototypes</a></h3>
+          <p>Interactive tools for exploring room modes and acoustic excitation.</p>
         </article>
-        <article>
-          <h3>Cavitation in heat-pump piping</h3>
-          <p>I used numerical simulation to investigate cavitation in piping as part of heat-pump technology development.</p>
+        <article id="fun">
+          <h3><a href="fun-projects/index.html">Fun projects</a></h3>
+          <p>Acoustics and ray-tracing experiments, from didgeridoo bores to mirrored rooms.</p>
         </article>
-      </div>
-    </section>
-
-    <section id="lab" aria-labelledby="lab-title">
-      <h2 id="lab-title">Lab prototypes</h2>
-      <div class="cards">
-        <article>
-          <h3>Room Resonance Lab</h3>
-          <p>An interactive prototype for exploring how room geometry shapes natural frequencies and the spatial patterns of acoustic modes.</p>
+        <article id="archive">
+          <h3><a href="career-archive/index.html">Career archive</a></h3>
+          <p>Simulation case files, technical reports, animations, and professional writing.</p>
         </article>
-        <article>
-          <h3>Exciting a furnished room</h3>
-          <p>A planned standalone prototype comparing how different source signals excite the modes of the same furnished room. The aim is to connect modal analysis to a forced response through examples such as a clap, a whistle, and a balloon pop.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="fun" aria-labelledby="fun-title">
-      <h2 id="fun-title">Fun projects</h2>
-      <div class="cards">
-        <article>
-          <p class="category">Acoustics</p>
-          <h3>Didgeridoo resonance</h3>
-          <p>An exploration of how the length and shape of a didgeridoo’s bore affect its resonances, including a snake-shaped geometry.</p>
-        </article>
-        <article>
-          <p class="category">CFD · Building ventilation</p>
-          <h3>Can the wind ventilate a restroom?</h3>
-          <p>I compared simulated suction from a wind-driven ventilator with experimental data and used a passive tracer to explore how effectively it clears air from a naturally ventilated restroom.</p>
-        </article>
-        <article>
-          <p class="category">Ray optics</p>
-          <h3>Tokarsky’s unilluminable room</h3>
-          <p>A ray-tracing experiment on a geometric puzzle about whether light from one point can reach every part of a mirrored room.</p>
-        </article>
-        <article>
-          <h3>The Cloud Beneath the Ice</h3>
-          <p>Presented at IGEC 2025 in Reykjavík, this study examines the environmental and socioeconomic implications of data center development in Iceland.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="archive" aria-labelledby="archive-title">
-      <h2 id="archive-title">Career archive</h2>
-      <div class="reading">
-        <p>The archive covers two decades of engineering, simulation, and professional writing.</p>
-        <ul>
-          <li>Simulation case files, including datasets, FEA, and CFD models</li>
-          <li>Project animations, reports, and presentation media</li>
-          <li>Past professional publications on LinkedIn</li>
-        </ul>
       </div>
     </section>
   </main>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stable and efficient reduced-order models for wave-based room acoustics.">
+  <title>PhD research | Satish Bonthu</title>
+  <link rel="stylesheet" href="../portfolio.css">
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Portfolio">
+      <a href="../index.html">Home</a>
+      <a href="../research/index.html" aria-current="page">PhD research</a>
+      <a href="../iceland-cfd/index.html">Iceland CFD consulting</a>
+      <a href="../lab-prototypes/index.html">Lab prototypes</a>
+      <a href="../fun-projects/index.html">Fun projects</a>
+      <a href="../career-archive/index.html">Career archive</a>
+    </nav>
+    <div class="wrap page-hero"><h1>PhD research</h1></div>
+  </header>
+  <main class="wrap">
+    <section id="research">
+      <div class="reading">
+        <p>A wave-based simulation can predict how sound travels and decays in a room, but repeated simulations become expensive when you change the wall materials or other inputs. I build reduced-order models to make those repeated predictions faster while preserving the acoustic behavior that matters.</p>
+      </div>
+      <div class="cards">
+        <article>
+          <h3>Published research on numerical stability</h3>
+          <p>Our published formulation preserves the structure of the time-domain equations during model reduction and accounts for frequency-dependent absorbing boundaries.</p>
+          <p><a href="https://doi.org/10.1002/nme.70295">Read the open-access paper</a></p>
+        </article>
+        <article>
+          <h3>Ongoing research on changing room materials</h3>
+          <p>I’m investigating how a shared reduced basis can predict impulse responses across a range of boundary impedances. Accuracy and stability are assessed against full-order simulations.</p>
+          <p><a href="https://acute.hi.is/projects/reduced-order-modeling-rom-of-room-acoustic-simulations/">See the research project at ACUTE</a></p>
+        </article>
+        <article>
+          <h3>Non-intrusive modeling and data sparsity</h3>
+          <p>Our 2026 SSRN preprint combines proper orthogonal decomposition with regression to study how coverage of surface-absorption settings affects prediction accuracy.</p>
+          <p><a href="https://doi.org/10.2139/ssrn.7412273">Read the SSRN preprint</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <a href="https://github.com/Satish-Bonthu">Satish Bonthu on GitHub</a>
+  </footer>
+</body>
+</html>
