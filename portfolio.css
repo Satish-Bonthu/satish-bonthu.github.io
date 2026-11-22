@@ -56,3 +56,57 @@ nav a[aria-current='page'] { text-decoration-thickness: .15em; }
   .hero--voyager { padding-top: 57vw; min-height: 0; padding-bottom: 1.25rem; }
   .voyager-image { height: auto; aspect-ratio: 2 / 1; }
 }
+
+/* Homepage palette. Light and dark gradients retain contrast on their surfaces. */
+.portfolio-home {
+  --voyager-light: linear-gradient(100deg, #f6e8c3, #bfab79 48%, #80cdc1);
+  --voyager-dark: linear-gradient(100deg, #774509, #225c52 88%);
+  --voyager-night: #10242c;
+}
+.voyager-header { background: var(--voyager-night); }
+.voyager-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1.35rem;
+  border-color: #80cdc14d;
+}
+.voyager-header nav a { margin-right: 0; }
+.voyager-header .hero--voyager { min-height: clamp(31rem, 48vw, 47rem); padding-block: clamp(1.7rem, 4vw, 3.75rem); }
+.voyager-header .hero--voyager::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, var(--voyager-night), #10242c00 18%, #10242c00 45%, #101f27e8 100%),
+    linear-gradient(90deg, #0c1b24ad, #0c1b2400 78%);
+}
+.voyager-header .voyager-image { z-index: -2; }
+.voyager-header .hero-copy > * {
+  background: none;
+  padding-inline: 0;
+  max-width: 43rem;
+}
+.voyager-header .hero-copy { text-shadow: 0 1px 12px #0c1b24; }
+.voyager-header .hero-copy h1 { width: fit-content; margin: .15em 0; }
+.voyager-header .hero-summary { margin-top: .2rem; color: #d6e8e5; }
+.voyager-header .hero-copy a, .voyager-header nav a { text-decoration-color: #80cdc1; }
+@supports (background-clip: text) {
+  .voyager-header :is(h1, .location, .intro, a),
+  .portfolio-home main :is(h2, h3, .category) {
+    background-image: var(--voyager-light);
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+  }
+  .portfolio-home main :is(h2, h3, .category) { background-image: var(--voyager-dark); }
+  .voyager-header a:focus-visible { outline-color: #80cdc1; }
+}
+@media (max-width: 40rem) {
+  .voyager-header .hero--voyager { min-height: 0; padding-top: clamp(12rem, 52vw, 23rem); }
+  .voyager-header .voyager-image { height: auto; }
+  .voyager-header .hero--voyager::before {
+    background: linear-gradient(180deg, #10242c59, #10242c00 19%, #10242c00 34%, var(--voyager-night) 62%);
+  }
+  .voyager-header .hero-copy h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+}
