@@ -39,74 +39,44 @@ nav a[aria-current='page'] { font-weight: 700; }
 .case-status { padding: .65rem .8rem; border-left: 3px solid var(--brand-brown); background: var(--brand-ivory); font-size: .9rem; }
 nav a[aria-current='page'] { text-decoration-thickness: .15em; }
 
-.hero--voyager { position: relative; isolation: isolate; min-height: clamp(29rem, 49vw, 47rem); display: grid; align-items: end; padding-block: 2rem; }
-.voyager-image { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.hero-copy { max-width: 68rem; }
-.hero-copy > * { max-width: 37rem; background: #003c30; padding-inline: 1rem; margin: 0; }
-.hero-copy .location { padding-top: .85rem; }
-.hero-copy h1 { padding-block: .2rem; font-size: clamp(2.7rem, 7vw, 5rem); }
-.hero-copy p:last-child { padding-block: .55rem .85rem; }
 .lab-list { display: grid; gap: 1rem; margin-block: 1.5rem 2rem; }
 .lab-card { display: grid; grid-template-columns: 1fr; gap: .85rem; }
 .lab-card h2 { font-size: clamp(1.65rem, 4vw, 2.35rem); margin-bottom: .25rem; }
 .lab-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; }
 .lab-launch { background: var(--brand-teal); color: var(--brand-ivory); padding: .42rem .75rem; border-radius: .25rem; }
 .lab-card summary { cursor: pointer; color: var(--brand-brown); font-weight: 700; }
-@media (max-width: 40rem) {
-  .hero--voyager { padding-top: 57vw; min-height: 0; padding-bottom: 1.25rem; }
-  .voyager-image { height: auto; aspect-ratio: 2 / 1; }
-}
 
-/* Homepage palette. Light and dark gradients retain contrast on their surfaces. */
-.portfolio-home {
-  --voyager-light: linear-gradient(100deg, #f6e8c3, #bfab79 48%, #80cdc1);
-  --voyager-dark: linear-gradient(100deg, #774509, #225c52 88%);
-  --voyager-night: #10242c;
+:root {
+  --sand-teal: linear-gradient(100deg,#f6e8c3,#bfab79 48%,#80cdc1);
+  --ink-gradient: linear-gradient(100deg,#754610,#20584e);
+  --night: #12252c;
 }
-.voyager-header { background: var(--voyager-night); }
-.voyager-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .45rem 1.35rem;
-  border-color: #80cdc14d;
-}
-.voyager-header nav a { margin-right: 0; }
-.voyager-header .hero--voyager { min-height: clamp(31rem, 48vw, 47rem); padding-block: clamp(1.7rem, 4vw, 3.75rem); }
-.voyager-header .hero--voyager::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(180deg, var(--voyager-night), #10242c00 18%, #10242c00 45%, #101f27e8 100%),
-    linear-gradient(90deg, #0c1b24ad, #0c1b2400 78%);
-}
-.voyager-header .voyager-image { z-index: -2; }
-.voyager-header .hero-copy > * {
-  background: none;
-  padding-inline: 0;
-  max-width: 43rem;
-}
-.voyager-header .hero-copy { text-shadow: 0 1px 12px #0c1b24; }
-.voyager-header .hero-copy h1 { width: fit-content; margin: .15em 0; }
-.voyager-header .hero-summary { margin-top: .2rem; color: #d6e8e5; }
-.voyager-header .hero-copy a, .voyager-header nav a { text-decoration-color: #80cdc1; }
+header { background: var(--night); }
+header nav { display:flex; flex-wrap:wrap; gap:.45rem 1.6rem; border-color:#80cdc150; }
+header nav a { margin:0; text-decoration:none; padding-block:.2rem; color:#e8e5cf; }
+header nav a:hover, header nav a[aria-current] { text-decoration:underline; text-decoration-color:#80cdc1; }
+.page-hero h1, .voyager-intro h1 { width:fit-content; }
 @supports (background-clip: text) {
-  .voyager-header :is(h1, .location, .intro, a),
-  .portfolio-home main :is(h2, h3, .category) {
-    background-image: var(--voyager-light);
-    background-clip: text;
-    color: transparent;
-    text-shadow: none;
-  }
-  .portfolio-home main :is(h2, h3, .category) { background-image: var(--voyager-dark); }
-  .voyager-header a:focus-visible { outline-color: #80cdc1; }
+  header :is(h1, nav a) { background-image:var(--sand-teal); background-clip:text; color:transparent; }
+  main :is(h2,.category) { background-image:var(--ink-gradient); background-clip:text; color:transparent; }
 }
-@media (max-width: 40rem) {
-  .voyager-header .hero--voyager { min-height: 0; padding-top: clamp(12rem, 52vw, 23rem); }
-  .voyager-header .voyager-image { height: auto; }
-  .voyager-header .hero--voyager::before {
-    background: linear-gradient(180deg, #10242c59, #10242c00 19%, #10242c00 34%, var(--voyager-night) 62%);
-  }
-  .voyager-header .hero-copy h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+.voyager-stage { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,6fr); align-items:center; gap:clamp(1rem,3vw,3rem); padding-block:clamp(2rem,6vw,5rem); }
+.voyager-intro h1 { font-size:clamp(3.2rem,6vw,6rem); line-height:.96; margin:0; }
+.voyager-intro .intro { margin-top:1.2rem; color:#f6e8c3; }
+.voyager-intro .hero-summary { max-width:32ch; color:#c1d6d1; }
+.voyager-intro .affiliation { display:inline-block; margin-top:1.2rem; font-size:.86rem; }
+.voyager-figure { margin:0; border-left:1px solid #80cdc155; padding-left:clamp(.75rem,2vw,1.5rem); }
+.voyager-figure img { width:100%; height:auto; display:block; }
+.voyager-figure figcaption { color:#c1d6d1; font-size:.8rem; margin-top:.6rem; text-align:right; }
+.portfolio-home main section > h2 { letter-spacing:-.035em; }
+.portfolio-home main .cards article { background:transparent; border:0; border-top:2px solid #416e61; padding:1rem 0; }
+.region-index { border-top:1px solid #b9c8be; }
+.region-index a { display:grid; grid-template-columns:minmax(7rem,1fr) 2fr auto; align-items:baseline; gap:.75rem; padding:.9rem 0; border-bottom:1px solid #b9c8be; text-decoration:none; }
+.region-index a:hover strong { text-decoration:underline; }
+.region-index a span { color:#405952; }
+.section-back { margin-top:1.2rem; }
+@media (max-width: 44rem) {
+  .voyager-stage { grid-template-columns:1fr; gap:1.8rem; }
+  .voyager-figure { border-left:0; border-top:1px solid #80cdc155; padding:.8rem 0 0; }
+  .region-index a { grid-template-columns:minmax(6.5rem,1fr) 2fr auto; }
 }
