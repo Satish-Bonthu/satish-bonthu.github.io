@@ -30,7 +30,18 @@
 .pillar-wheel figcaption {font-size:.85rem;color:#405952}
 @media(max-width:48rem){.pillar-layout{grid-template-columns:1fr}.pillar-wheel svg{max-width:25rem}}
 </style>
-</head>
+<style>
+.cinema-kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:#c7eae5;margin:0 0 .65rem}
+.cinema-stage{position:relative;aspect-ratio:16/9;background:#0c1b21;overflow:hidden;display:grid;place-items:center}
+.cinema-stage img,.cinema-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .65s ease}
+.cinema figcaption{display:flex;justify-content:space-between;align-items:center;gap:.5rem;text-align:left}
+.cinema-caption{display:grid;gap:.15rem}.cinema-caption strong{font-size:1.05rem;color:#f6e8c3}.cinema-caption span:first-child{color:#dfc27d;font-variant-numeric:tabular-nums}
+.cinema-controls{display:flex;gap:.3rem}.cinema-controls[hidden]{display:none}
+.cinema button{background:transparent;border:1px solid #80cdc155;color:#f6e8c3;border-radius:3px;cursor:pointer;min-width:2rem;min-height:2rem;font:inherit}
+.cinema button:focus-visible{outline:2px solid #dfc27d;outline-offset:3px}
+.cinema-progress{display:flex;gap:4px;margin-top:.7rem}.cinema-progress button{flex:1;min-width:0;min-height:5px;height:5px;padding:0;background:#416461;border:0}.cinema-progress button[aria-current=true]{background:#dfc27d}
+@media(prefers-reduced-motion:reduce){.cinema-stage img,.cinema-stage video{transition:none}}
+</style></head>
 <body class="portfolio-home">
   <header class="voyager-header">
     <nav class="wrap" aria-label="Portfolio">
@@ -47,10 +58,10 @@
         <p class="hero-summary">19+ years across the CAE technology ecosystem — bridging engineering, product innovation, business development and strategic advisory.</p>
         <a class="affiliation" href="#professional-pillars">Explore my professional dimensions ↓</a>
       </div>
-      <figure class="voyager-figure">
-        <img src="images/sun-voyager.jpg?v=2" width="1804" height="901" fetchpriority="high" alt="CFD streamlines bending around the Sun Voyager sculpture">
-        <figcaption>Sun Voyager · CFD streamline visualization</figcaption>
-      </figure>
+      <figure class="voyager-figure cinema" aria-label="Iceland through the lens of computational engineering">
+<p class="cinema-kicker">Iceland through the lens of computational engineering</p>
+<div class="cinema-stage" id="cinema-stage"><img src="images/sun-voyager.jpg?v=2" alt="CFD streamlines around Sun Voyager" fetchpriority="high"></div>
+<figcaption><div class="cinema-caption"><span id="cinema-count">01 / 08</span><strong id="cinema-title">Sun Voyager</strong><span id="cinema-sub">Art meets aerodynamics</span></div><div class="cinema-controls" hidden><button type="button" id="cinema-prev" aria-label="Previous project">‹</button><button type="button" id="cinema-play" aria-label="Pause slideshow">Ⅱ</button><button type="button" id="cinema-next" aria-label="Next project">›</button><button type="button" id="cinema-full" aria-label="Fullscreen visualization">⛶</button></div></figcaption><div id="cinema-progress" class="cinema-progress"></div></figure>
     </div>
   </header>
 
@@ -107,5 +118,7 @@
   <footer class="wrap">
     <a href="https://github.com/Satish-Bonthu" target="_blank" rel="noopener">Satish Bonthu on GitHub</a>
   </footer>
-</body>
+<script>
+(()=>{const all=[["Sun Voyager","Art meets aerodynamics","images/sun-voyager.jpg?v=2"],["North Sailing","Marine hydrodynamics and decarbonization","showcase/propeller.png"],["Icelandic Sheep","Unconventional aerodynamics","showcase/sheep.jpg"],["Hallgrímskirkja","Architectural aerodynamics","showcase/church.mp4"],["Hydram","Cavitation and multiphase flow","showcase/hydram.mp4"],["Rúnar’s House","Wind and the built environment","showcase/rushflow.mp4"],["The Cloud Beneath the Ice","Environmental impact of digital infrastructure","showcase/cable.jpg"],["Sustainable Toilet Ventilation","Indoor air quality and sustainable innovation","showcase/ventilation.mp4"]],stage=document.querySelector('#cinema-stage'),controls=document.querySelector('.cinema-controls'),progress=document.querySelector('#cinema-progress'),play=document.querySelector('#cinema-play');let list=[],index=0,timer,token=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;const probe=async s=>{if(s===all[0])return true;try{const r=await fetch(s[2],{method:'HEAD'});return r.ok&&!r.headers.get('content-type')?.includes('text/html')}catch{return false}};function schedule(ms=7000){clearTimeout(timer);if(!paused&&!document.hidden&&list.length>1)timer=setTimeout(()=>show(index+1),ms)}function sync(){play.textContent=paused?'▶':'Ⅱ';play.setAttribute('aria-label',paused?'Resume slideshow':'Pause slideshow')}function show(n){clearTimeout(timer);const t=++token;index=(n+list.length)%list.length;const s=list[index],video=s[2].endsWith('.mp4'),el=document.createElement(video?'video':'img');el.style.opacity='0';if(video){el.muted=true;el.playsInline=true;el.preload='metadata';el.loop=true}else el.alt=s[0]+' — CFD visualization';const ready=()=>{if(t!==token){el.remove();return}const old=[...stage.children].filter(x=>x!==el);el.style.opacity='1';old.forEach(x=>{x.style.opacity='0';if(x.tagName==='VIDEO')x.pause();setTimeout(()=>x.remove(),700)});document.querySelector('#cinema-title').textContent=s[0];document.querySelector('#cinema-sub').textContent=s[1];document.querySelector('#cinema-count').textContent=String(index+1).padStart(2,'0')+' / '+String(list.length).padStart(2,'0');[...progress.children].forEach((b,i)=>b.setAttribute('aria-current',String(i===index)));if(video&&!paused)el.play().catch(()=>{});schedule(video?Math.min(20000,Math.max(8000,(el.duration||8)*1000)):7000)};el.addEventListener(video?'loadeddata':'load',ready,{once:true});el.addEventListener('error',()=>{el.remove();if(t===token)schedule(1000)},{once:true});stage.append(el);el.src=s[2]}Promise.all(all.map(probe)).then(ok=>{list=all.filter((_,i)=>ok[i]);document.querySelector('#cinema-count').textContent='01 / '+String(list.length).padStart(2,'0');if(list.length<2)return;controls.hidden=false;list.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',s[0]);b.setAttribute('aria-current',String(i===0));b.onclick=()=>show(i);progress.append(b)});sync();schedule()});document.querySelector('#cinema-prev').onclick=()=>show(index-1);document.querySelector('#cinema-next').onclick=()=>show(index+1);play.onclick=()=>{paused=!paused;sync();stage.querySelectorAll('video').forEach(v=>paused?v.pause():v.play().catch(()=>{}));schedule()};document.querySelector('#cinema-full').onclick=()=>stage.requestFullscreen?.().catch(()=>{});document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(timer);stage.querySelectorAll('video').forEach(v=>v.pause())}else{if(!paused)stage.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));schedule()}});})();
+</script></body>
 </html>
